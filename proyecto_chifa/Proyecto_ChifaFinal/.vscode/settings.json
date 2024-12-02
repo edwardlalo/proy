@@ -1,0 +1,5 @@
+{
+    "livePreview.defaultPreviewPath": "/proy/src/main/resources/templates/Index.html",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
