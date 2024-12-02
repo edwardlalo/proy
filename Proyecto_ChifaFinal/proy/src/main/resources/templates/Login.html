@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="CSS/StylesLogin.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="col col-1">
+        <div class="image-layer">
+          <img src="Imagenes/LogotipoX.png" class="form-image-main" />
+        </div>
+        <p class="featured-words">
+          Ingrese sus datos personales
+        </p>
+      </div>
+      <div class="col col-2">
+        <div class="btn-box">
+          <button class="btn btn-1" id="login">Inicia sesión</button>
+          <button class="btn btn-2" id="register">Regístrate</button>
+        </div>
+
+        <!-- Contenedor del formulario de login-->
+        <div class="login-form" id="loginForm">
+          <div class="form-title">
+            <span>Iniciar sesión</span>
+          </div>
+          <form action="/procesarLogin" method="post">
+            <div class="form-inputs">
+              <div class="input-box">
+                <input type="text" class="input-field" name="correo" placeholder="Correo" value="correoprueba@gmail.com" required>
+                <i class="bx bx-user icon"></i>
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field" name="contrasena" placeholder="Contraseña" value="12345" required>
+                <i class="bx bx-lock-alt icon"></i>
+              </div>
+              <div class="input-box">
+                <button class="input-submit" type="submit">
+                  <span>Iniciar sesión</span>
+                  <i class="bx bx-right-arrow-alt"></i>
+                </button>
+              </div>
+            </div>
+            <div class="social-login">
+              <i class="bx bxl-google"></i>
+              <i class="bx bxl-facebook"></i>
+              <i class="bx bxl-twitter"></i>
+              <i class="bx bxl-github"></i>
+            </div>
+            <!-- Botón para ingresar a la intranet -->
+            <div class="intranet-access">
+              <a href="/intranetlogin" class="btn-intranet">¿Trabajas aquí? Ingresa a la intranet</a>
+            </div>
+          <!-- Botón de regresar al inicio -->
+          <div class="return-home">
+            <a href="/" class="btn-return">Regresar al inicio</a>
+          </div>
+          </form>
+          <p th:text="${mensaje}"></p> <!-- Muestra mensajes de éxito o error -->
+        </div>
+
+        <!-- Contenedor del formulario de registro-->
+        <div class="register-form" id="registerForm">
+          <div class="form-title">
+            <span>Crear cuenta</span>
+          </div>
+          <form action="/registro" method="post">
+            <div class="form-inputs">
+              <div class="input-box">
+                <input type="email" class="input-field" name="correo" placeholder="Correo" required>
+                <i class="bx bx-envelope icon"></i>
+              </div>
+              <div class="input-box">
+                <input type="text" class="input-field" name="nombre" placeholder="Nombre" required>
+                <i class="bx bx-user icon"></i>
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field" name="contrasena" placeholder="Contraseña" required>
+                <i class="bx bx-lock-alt icon"></i>
+              </div>
+              <div class="input-box">
+                <button class="input-submit" type="submit">
+                  <span>Regístrate</span>
+                  <i class="bx bx-right-arrow-alt"></i>
+                </button>
+                <!-- Botón de regresar al inicio -->
+                  <div class="return-home">
+                <a href="/" class="btn-return">Regresar al inicio</a>
+            </div>
+              </div>
+            </div>
+            
+            <div class="social-login">
+              <i class="bx bxl-google"></i>
+              <i class="bx bxl-facebook"></i>
+              <i class="bx bxl-twitter"></i>
+              <i class="bx bxl-github"></i>
+            </div>
+          </form>
+          <p th:text="${mensaje}"></p> <!-- Muestra mensajes de éxito o error -->
+        </div>
+      </div>
+    </div>
+    <script src="JS/Scripts_login.js"></script>
+  </body>
+</html>

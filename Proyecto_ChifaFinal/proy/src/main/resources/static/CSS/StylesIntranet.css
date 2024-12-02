@@ -1,0 +1,257 @@
+
+  /* Responsive Design */
+  @media (max-width: 300px) {
+    .option {
+      flex: 1 2 60%; /* Un solo elemento por fila en pantallas pequeñas */
+    }
+  }
+  
+  /* PUBLICIDAD ---------------------------------------------------------- */
+  
+  .publicidades {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .publicidad {
+    width: 20%; 
+    min-height: 400px; 
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .publicidad img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain; 
+    border-radius: 10px;
+  }
+  
+  /* Estilo del texto debajo de la imagen */
+  .publicidad p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .publicidad {
+      width: 45%; 
+      min-height: 300px; 
+    }
+  }
+  
+  @media (max-width: 790px) {
+    .publicidad {
+      width: 60%; 
+      min-height: 200px; 
+    }
+  }
+  
+  /* Pie de Pagina ----------------------------------------- */
+  .pie-pagina {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #d4eed3;
+  }
+  .pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+  }
+  .pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+  }
+  .pie-pagina .grupo-1 .box h2 {
+    color: #000000;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .pie-pagina .grupo-1 .box p {
+    color: #313131;
+    margin-bottom: 10px;
+  }
+  .pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #7c9b6f;
+    text-align: center;
+    transition: all 300ms ease;
+  }
+  .pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+  }
+  .pie-pagina .grupo-2 {
+    background-color: #7c9b6f;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+  }
+  .pie-pagina .grupo-2 small {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 800px) {
+    .pie-pagina .grupo-1 {
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+    }
+  }
+
+  /* Formato del cuerpo de información del usuario */
+.user-info {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .user-info h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .user-info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .user-info p strong {
+    color: #333;
+  }
+  
+  .user-info p span {
+    color: #1c3b19;
+  }
+  
+  .user-info p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Estilos para la tabla de platillos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: 'Arial', sans-serif;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50; /* Color de fondo para el encabezado */
+  color: white;
+  text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Color alterno para las filas */
+}
+
+tbody tr:hover {
+  background-color: #ddd; /* Color de fondo al pasar el mouse */
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 90%; /* Ancho del input */
+  padding: 8px; /* Espaciado interno */
+  margin: 5px 0; /* Margen */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+}
+
+input[type="submit"] {
+  background-color: #4CAF50; /* Color de fondo para el botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 15px; /* Espaciado interno */
+  border-radius: 4px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos para el botón */
+.btn-imprimir {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-imprimir:hover {
+  background-color: #45a049;
+}

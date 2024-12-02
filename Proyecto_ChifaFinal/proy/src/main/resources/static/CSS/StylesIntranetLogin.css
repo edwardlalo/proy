@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(https://static.vecteezy.com/system/resources/previews/002/381/677/original/multicolored-blurry-bokeh-on-a-green-background-vector.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 3px solid rgba(30, 30, 30, 0.3);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.input-box {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  backdrop-filter: blur(20px);
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: #21264D;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #30376d;
+}
+
+.forgot-pass {
+  margin-top: 10px;
+}
+
+.forgot-pass a {
+  color: #a3a8d1;
+  text-decoration: none;
+}
+
+.forgot-pass a:hover {
+  text-decoration: underline;
+}
