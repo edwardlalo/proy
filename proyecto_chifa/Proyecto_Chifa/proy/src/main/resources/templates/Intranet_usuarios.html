@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="CSS/StylesIntranet.css" />
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="intranet">Principal</a></li>
+                <li><a href="intranet_usuarios">Ver Registros de usuarios</a></li>
+                <li><a href="intranet_productos">Ver Productos</a></li>
+            </ul>
+            <div class="logo">
+                <a href="#">
+                    <img src="Imagenes/LogotipoX.png" alt="Logo" />
+                </a>
+            </div>
+            <!-- Boton para cerrar sesion --->
+            <div class="auth-buttons">
+                <a href="/logout" class="btn login">Salir de la Intranet</a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <div class="publicidades">
+        <div class="user-info">
+            <h2>Lista de Usuarios</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Correo</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Generar tabla con los usuarios extraidos de la bd --->
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.correo}"></td>
+                        <td th:text="${usuario.nombre}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Referencia para exportar la tabla usuarios a un excel --->
+            <a href="/intranet_usuarios/exportar?format=xlsx" class="btn-imprimir">Exportar Usuarios</a> <!-- Botón agregado -->
+        </div>
+    </div>
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>
+                    En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china 
+                    y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.
+                </p>
+            </div>
+            <div class="box">
+                <h2>SÍGUENOS</h2>
+                <div class="red-social">
+                    <a href="#" class="bx bxl-facebook"></a>
+                    <a href="#" class="bx bxl-instagram"></a>
+                    <a href="#" class="bx bxl-twitter"></a>
+                    <a href="#" class="bx bxl-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script src="JS/script.js"></script>
+</body>
+</html>

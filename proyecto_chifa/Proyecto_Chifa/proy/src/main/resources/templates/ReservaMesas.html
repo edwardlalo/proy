@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Mesas</title>
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link rel="stylesheet" href="CSS/StylesMesa.css" />
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="inicio">Volver al Inicio</a></li>
+          </ul>
+          <div class="logo">
+            <a href="#">
+              <img src="Imagenes/LogotipoX.png" alt="Logo" />
+            </a>
+          </div>
+          <div class="auth-buttons">
+            <!-- Comprobar si hay un usuario en la sesión -->
+            <div th:if="${usuario != null}">
+              <span th:text="'Hola, ' + ${usuario.nombre}"></span> <!-- Muestra el nombre del usuario -->
+              <a href="/logout" class="btn logout">Cerrar Sesión</a> <!-- Botón de cerrar sesión -->
+            </div>
+            <div th:if="${usuario == null}">
+              <a href="login" class="btn login">Iniciar Sesión</a> <!-- Botón de iniciar sesión -->
+            </div>
+          </div>
+        </nav>
+      </header>
+    <main>
+      <!-- Indicador de fecha seleccionada por el usuario -->
+      <section id="fechaReserva">
+        <h2>Fecha de tu reserva</h2>
+        <div id="fechaSeleccionadaContainer">
+            <p>Fecha seleccionada: <span id="fechaSeleccionada">No has seleccionado una fecha</span></p>
+            <br><button id="seleccionarOtraFecha">Seleccionar otra fecha</button>
+        </div>
+    </section>
+    
+    
+        <section>
+          <br>
+          <h2>Selecciona una mesa</h2>
+          <div class="leyenda">
+            <span class="indicador disponible"></span> Disponible
+            <span class="indicador no-disponible"></span> Ocupada
+          </div>
+          <!-- Sector de mesas -->
+        <div class="mesas-container">
+          <!-- Iterar sobre la lista de mesas obtenidas de la bd-->
+          <div th:each="mesa : ${mesas}" 
+              th:classappend="${mesa.disponibilidad == 'disponible'} ? 'disponible mesa' : 'no-disponible mesa'">
+              <span class="texto-mesa" th:text="'Mesa ' + ${mesa.numero_mesa}"></span>
+              <img src="Imagenes/mesa.png" alt="Icono de Mesa">
+          </div>
+        </div>
+
+        </section>
+        <section>
+          <!-- Seccion de las mesas seleccionadas -->
+          <h2>Tu Selección</h2>
+          <div class="seleccion-container">
+              <ul id="mesaSeleccionada"></ul>    
+              <button id="deseleccionarTodo">Deseleccionar Todo</button>
+              <button id="continuar" class="btn-continuar">Continuar</button>
+          </div>
+    </section> 
+      </main>
+
+      <footer class="pie-pagina">
+        <div class="grupo-1">
+          <div class="box">
+            <figure>
+              <a href="#">
+                <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+              </a>
+            </figure>
+          </div>
+          <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>
+              En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china 
+              y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.
+            </p>
+          </div>
+          <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+              <a href="#" class="bx bxl-facebook"></a>
+              <a href="#" class="bx bxl-instagram"></a>
+              <a href="#" class="bx bxl-twitter"></a>
+              <a href="#" class="bx bxl-youtube"></a>
+            </div>
+          </div>
+        </div>
+        <div class="grupo-2">
+          <small
+          >&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small
+          >
+        </div>
+      </footer>
+    <script src="JS/script.js"></script>
+    <script src="JS/scriptsMesas.js"></script>
+</body>
+</html>

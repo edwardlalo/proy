@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INICIO</title>
+    <link rel="stylesheet" href="CSS/StylesInicio.css" />
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="inicio">Inicio</a></li>
+          <!-- Condición para mostrar el enlace de reserva o una alerta -->
+        <li th:if="${usuario != null}">
+          <a href="reservaMesas">Realizar reserva</a> <!-- Redirecciona si hay usuario en sesion -->
+        </li>
+        <li th:if="${usuario == null}">
+          <a href="#" onclick="mostrarAlerta()">Realizar reserva</a> <!-- Llama a una función SweetAlert si no hay usuario -->
+        </li>
+        <li><a href="contactanos">Contactanos</a></li>
+        <li><a href="nosotros">Nosotros</a></li>
+
+        </ul>
+        <div class="logo">
+          <a href="#">
+            <img src="Imagenes/LogotipoX.png" alt="Logo" />
+          </a>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar..." />
+        </div>
+        <div class="auth-buttons">
+          <!-- Comprobar si hay un usuario en la sesión -->
+          <div th:if="${usuario != null}">
+            <span th:text="'Hola, ' + ${usuario.nombre}"></span> <!-- Muestra el nombre del usuario -->
+            <a href="/logout" class="btn logout">Cerrar Sesión</a> <!-- Botón de cerrar sesión -->
+          </div>
+          <div th:if="${usuario == null}">
+            <a href="login" class="btn login">Iniciar Sesión</a> <!-- Botón de iniciar sesión -->
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <br>
+
+    <!-- Slider de imágenes -->
+    <div class="image-slider">
+      <img src="Imagenes/SliderChine2.jpg" alt="Imagen 1" class="slide active"/>
+      <img src="Imagenes/SliderChine.jpg" alt="Imagen 2" class="slide" />
+      <img src="Imagenes/SliderChine2.jpg" alt="Imagen 3" class="slide" />
+      <img src="Imagenes/SliderChine.jpg" alt="Imagen 4" class="slide" />
+    </div>
+
+    <!-- Frase -->
+    <div class="antoja-section">
+      <h2>¿Gusta de algún antojito?</h2>
+      <div class="options">
+        <div class="option" style="background-color: #e27a79">Reservas</div>
+        <div class="option" style="background-color: #e6da74">Platillos</div>
+        <div class="option" style="background-color: #b5eb52">Bebidas</div>
+        <div class="option" style="background-color: #6ed7df">Promociones</div>
+        <div class="option" style="background-color: #a383ce">Experiencias</div>
+      </div>
+    </div>
+
+    <!-- Contenedor de Publicidades -->
+    <div class="publicidades">
+      <div class="publicidad">
+        <img src="Imagenes/Anuncio1.jpeg" alt="Publicidad 1" />
+      </div>
+      <div class="publicidad">
+        <img src="Imagenes/Anuncio1.jpeg" alt="Publicidad 2" />
+      </div>
+      <div class="publicidad">
+        <img src="Imagenes/Anuncio1.jpeg" alt="Publicidad 3" />
+      </div>
+    </div>
+
+    <!-- Contenedor de PIE DE PAGINA -->
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure>
+            <a href="#">
+              <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>
+            En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china 
+            y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.
+          </p>
+        </div>
+        <div class="box">
+          <h2>SIGUENOS</h2>
+          <div class="red-social">
+            <a href="#" class="bx bxl-facebook"></a>
+            <a href="#" class="bx bxl-instagram"></a>
+            <a href="#" class="bx bxl-twitter"></a>
+            <a href="#" class="bx bxl-youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small>&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small>
+      </div>
+    </footer>
+    <script src="JS/script.js"></script>
+    <script>
+      function mostrarAlerta() {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Atención',
+          text: 'Debes iniciar sesión para realizar una reserva.',
+          confirmButtonText: 'OK'
+        });
+      }
+    </script>
+  </body>
+</html>

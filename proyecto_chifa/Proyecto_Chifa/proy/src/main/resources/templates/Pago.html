@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva</title>
+    <link rel="stylesheet" href="CSS/StylesPago.css" />
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="inicio">Inicio</a></li>
+                <li><a href="platillos">Platillos</a></li>
+                <li><a href="reservaMesas">Reservar</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="logo">
+                <a href="#">
+                    <img src="Imagenes/LogotipoX.png" alt="Logo" />
+                </a>
+            </div>
+            <div class="auth-buttons">
+                <div th:if="${usuario != null}">
+                    <span th:text="'Hola, ' + ${usuario.nombre}"></span> <!-- Muestra el nombre del usuario -->
+                    <a href="/logout" class="btn logout">Cerrar Sesión</a> <!-- Botón de cerrar sesión -->
+                </div>
+                <div th:if="${usuario == null}">
+                    <a href="login" class="btn login">Iniciar Sesión</a> <!-- Botón de iniciar sesión -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br />
+    <br />
+    <div class="container">
+        <div style="width: 100%">
+            <h1>PAGAR</h1>
+            <div class="underline-title"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-section">
+            <h2>Plataformas de pago</h2>
+            <div class="payment-platforms">
+                <div id="paypal-button-container"></div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div>
+                    <!-- Cuadros de texto con la info del usuario almacenado en la sesion -->
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" th:value="${usuario.correo}" readonly class="readonly-input" />
+                </div>
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" th:value="${usuario.nombre}" readonly class="readonly-input" />
+                </div>
+            </div>
+            <!-- <div class="btn-group">
+                <button class="btn">Cambiar reserva</button>
+            </div>-->
+        </div>
+        <div class="summary-section">
+            <h2>Resumen de compra</h2>
+            <div class="carousel" id="listaPlatillosPago">
+            <!-- Aquí se cargarán los platillos seleccionados -->
+            </div>
+            <div class="underline-separator"></div>
+            <h2>Mesas Reservadas</h2>
+            <div class="carousel" id="listaMesasReservadas">
+                <ul id="mesasReservadasList"></ul>
+                <!-- Lista de mesas reservadas -->
+            </div>
+            <div class="underline-separator"></div>
+            <div class="total">
+                <p>Subtotal: <span id="subtotal">s/ 0.00</span></p>
+                <p>Comisión por reserva (10%): <span id="comision">s/ 0.00</span></p>
+            </div>
+            <div class="underline-separator"></div>
+            <div class="total">
+                <p><strong>Total:</strong> 
+                    <span id="total"><strong>s/ 0.00</strong></span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="metodo-pago">
+        <script src="https://www.paypal.com/sdk/js?client-id=Ae0nxDkz5BliN1QU1E6yAD9V5k4tKFywBL-WvNErvarLs-vhj0y_0mYS2HvpokV8ifSNwjcfTLsejPc6"></script>
+        <script>
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    var totalText = document.getElementById('total').textContent.trim(); 
+                    console.log("Total texto: ", totalText);  
+                    
+                    var total = parseFloat(totalText.replace("s/", "").trim());
+                    console.log("Total numérico: ", total);  
+                    
+                    if (isNaN(total) || total <= 0) {
+                        alert("No tiene ningún producto en su carrito.");
+                        return; 
+                    }
+        
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: total.toFixed(2) 
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        Swal.fire({
+                        icon: 'success',
+                        title: 'Pago Completado',
+                        text: 'Gracias por tu compra',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                    // Redirigir después de 2 segundos
+                    setTimeout(function() {
+                        window.location.href = '/inicio'; 
+                    }, 2000);
+                    });
+                },
+                onCancel: function(data) {
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Pago Cancelado',
+                    text: 'El pago fue cancelado',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+                }
+            }).render('#paypal-button-container');
+        </script>
+    </div>
+
+    <!-- Pie de pagina -->
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="#" class="bx bxl-facebook"></a>
+                    <a href="#" class="bx bxl-instagram"></a>
+                    <a href="#" class="bx bxl-twitter"></a>
+                    <a href="#" class="bx bxl-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script src="JS/script.js"></script>
+    <script src="JS/scriptsPlatillo.js"></script>
+    <script src="JS/scriptsPago.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+/* GENERAL CUERPO --------------------------------------------------  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* GENERAL NAVBAR -----------------------------------------------------------------*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #e6e4e4be;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  position: relative;
+}
+
+/* Boton de opciones del menú  ---------------------------------------------- */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.menu-toggle span {
+  width: 30px;
+  height: 4px;
+  background-color: #89bb88;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+/* Ventana desplegable de pestañas ------------------------------------------ */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-color: #f4f4f4; 
+  width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  z-index: 999;
+  overflow: hidden;
+  opacity: 0; 
+  transform: translateY(-10px); 
+  transition: all 0.3s ease; 
+}
+
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  opacity: 1; 
+  transform: translateY(0);
+}
+
+.nav-links li {
+  padding: 12px 16px; 
+  border-bottom: 1px solid #e0e0e0; 
+  text-align: left;
+}
+
+.nav-links li:last-child {
+  border-bottom: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333; 
+  font-size: 16px;
+  font-weight: 500; 
+  display: block;
+  transition: color 0.2s ease; 
+}
+
+.nav-links li a:hover {
+  color: #89bb88;
+}
+
+.menu-toggle:hover span {
+  background-color: #66a268; 
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-left: 20px; 
+}
+
+.search-bar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 400px; 
+  border: 1px solid #d1d1d1;
+  background-color: #d1d1d1; 
+  outline: none;
+  font-size: 16px; 
+}
+
+.search-bar input::placeholder {
+  color: #8d8d8d;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+}
+
+.auth-buttons .btn {
+  margin-left: 15px;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #8d8d8d;
+  border-radius: 5px;
+  color: #8d8d8d;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons .profile-icon img {
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+@media (max-width: 829px) {
+  .nav-links {
+    display: none; /* Sigue oculto hasta hacer clic */
+  }
+
+  .search-bar {
+    position: fixed; /* Fija la barra en la parte inferior */
+    bottom: 0; /* Posición en la parte inferior de la pantalla */
+    left: 0; 
+    width: 100%;
+    padding: 10px 10px;
+    z-index: 999; /* Asegura que esté encima de otros elementos */
+  }
+
+  .search-bar input {
+    width: calc(100% - 40px); 
+    padding: 12px; 
+    font-size: 16px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .auth-buttons .btn {
+    display: none; /* Oculta el botón de "Iniciar Sesión" en mobile */
+  }
+
+  .auth-buttons .profile-icon img {
+    margin-left: auto;
+  }
+}
+
+
+
+
+
+/* Pie de Pagina ----------------------------------------- */
+.pie-pagina {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #d4eed3;
+  }
+  .pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+  }
+  .pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+  }
+  .pie-pagina .grupo-1 .box h2 {
+    color: #000000;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .pie-pagina .grupo-1 .box p {
+    color: #313131;
+    margin-bottom: 10px;
+  }
+  .pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #7c9b6f;
+    text-align: center;
+    transition: all 300ms ease;
+  }
+  .pie-pagina .grupo-1 .red-social a:hover {
+    color: rgb(197, 197, 197);
+  }
+  .pie-pagina .grupo-2 {
+    background-color: #7c9b6f;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+  }
+  .pie-pagina .grupo-2 small {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 800px) {
+    .pie-pagina .grupo-1 {
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+    }
+  }
+  

@@ -1,0 +1,193 @@
+.mesas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1000px;
+  padding: 20px;
+  background-color: #f5f5f5; 
+  border: 2px solid rgba(0, 0, 0, 0.5); 
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las mesas */
+.mesa {
+  width: 100px;
+  height: 120px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+/* Estilos para el texto de las mesas */
+.texto-mesa {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.mesa.disponible {
+  background-color: #4caf50;
+}
+
+.mesa.no-disponible {
+  background-color: #f44336;
+}
+
+.mesa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mesa.seleccionada {
+  background-color: #ffeb3b;
+  color: #333;
+}
+
+.mesa img {
+  width: 50px;
+  height: auto;
+}
+
+.seleccion-container {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.seleccion-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+}
+
+/* Estilos para los elementos de la lista */
+.seleccion-container ul li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  background-color: rgba(255, 235, 59, 0.8);
+  padding: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#deseleccionarTodo {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#deseleccionarTodo:hover {
+  background-color: #d32f2f;
+}
+
+/* Estilos para la leyenda */
+.leyenda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.leyenda span {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.indicador {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.indicador.disponible {
+  background-color: #4caf50;
+}
+
+.indicador.no-disponible {
+  background-color: #f44336;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+/* Estilos para el botón de continuar */
+#continuar {
+  background-color: #4caf50;
+  color: white;
+  
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#continuar:hover {
+  background-color: #388e3c;
+}
+
+#fechaReserva {
+  width: 80%; /* Ancho del contenedor (puedes ajustar este valor según sea necesario) */
+  max-width: 600px; /* Ancho máximo del contenedor */
+  margin: 20px auto; /* Centramos el contenedor horizontalmente */
+  padding: 20px;
+  background-color: #f5f5f5; /* Color de fondo */
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Borde */
+  border-radius: 10px; /* Esquinas redondeadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Centrar texto */
+}
+
+#fechaSeleccionadaContainer {
+  margin-top: 15px; /* Espacio superior */
+}
+
+#fechaSeleccionada {
+  font-weight: bold; /* Negrita para resaltar */
+  color: #333; /* Color del texto */
+}
+
+#seleccionarOtraFecha {
+  background-color: #2c5f47; /* Color del botón */
+  color: white; /* Color del texto del botón */
+  padding: 10px 15px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambiar cursor */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+#seleccionarOtraFecha:hover {
+  background-color: #264b31; /* Color al pasar el mouse */
+}

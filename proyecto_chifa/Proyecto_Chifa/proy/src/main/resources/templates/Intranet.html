@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INICIO</title>
+    <link rel="stylesheet" href="CSS/StylesIntranet.css" />
+    <link rel="stylesheet" href="CSS/StylesGeneral.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="intranet">Principal</a></li>
+          <li><a href="intranet_usuarios">Ver Registros de usuarios</a></li>
+          <li><a href="intranet_productos">Ver Productos</a></li>
+        </ul>
+        <div class="logo">
+          <a href="#">
+            <img src="Imagenes/LogotipoX.png" alt="Logo" />
+          </a>
+        </div>
+        <!-- Boton para cerrar sesion --->
+        <div class="auth-buttons">
+          <a href="/logout" class="btn login">Salir de la Intranet</a>
+        </div>
+      </nav>
+    </header>
+    <br>
+    <!-- Contenedor de los datos del usuario -->
+    <div class="publicidades">
+      <div class="user-info">
+        <img src="Imagenes/usuario.png" alt="Foto de usuario" style="width:250px; height:250px; border-radius:50%; display:block; margin:auto;">
+        <h2>Datos del trabajador</h2>
+        <p><strong>Nombre:</strong> <span th:text="${nombre}"></span></p>
+        <p><strong>Apellido:</strong> <span th:text="${apellido}"></span></p>
+        <p><strong>Correo de la empresa:</strong> <span th:text="${correo}"></span></p>
+        <p><strong>Puesto:</strong> <span th:text="${puesto}"></span></p>
+        <p><strong>Teléfono:</strong> <span th:text="${telefono}"></span></p>
+        <p><strong>Dirección:</strong> <span th:text="${direccion}"></span></p>
+        <p><strong>Género:</strong> <span th:text="${genero}"></span></p>
+      </div>
+    </div>
+     <!-- Pie de pagina -->
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure>
+            <a href="#">
+              <img src="Imagenes/LogotipoX.png" alt="Logo Lote de Jade" />
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>
+            En Lote de Jade, somos apasionados por ofrecer una experiencia culinaria única. Nuestro menú combina lo mejor de la cocina tradicional china 
+            y peruana, utilizando ingredientes frescos y recetas auténticas. Nuestro equipo se esfuerza por brindar un servicio excepcional, asegurando que cada visita sea memorable.
+          </p>
+        </div>
+        <div class="box">
+          <h2>SÍGUENOS</h2>
+          <div class="red-social">
+            <a href="#" class="bx bxl-facebook"></a>
+            <a href="#" class="bx bxl-instagram"></a>
+            <a href="#" class="bx bxl-twitter"></a>
+            <a href="#" class="bx bxl-youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small>&copy; 2024 <b>Chifa Loto de Jade</b> - Todos los Derechos Reservados.</small>
+      </div>
+    </footer>
+    <script src="JS/script.js"></script>
+  </body>
+</html>
